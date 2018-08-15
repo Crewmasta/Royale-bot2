@@ -11,19 +11,47 @@ client.on('message', msg => {
   }
 });
 
-//! KinG66S.❤#0045
-var KinG66S = {};//! KinG66S.❤#0045
-client.on('guildMemberRemove', member => {//! KinG66S.❤#0045
-KinG66S[member.id] = {roles: member.roles.array()};//! KinG66S.❤#0045
-});
-//! KinG66S.❤#0045 //! KinG66S.❤#0045 //! KinG66S.❤#0045 
-client.on('guildMemberAdd', member => {//! KinG66S.❤#0045
-if(!KinG66S[member.user.id]) return;//! KinG66S.❤#0045
-console.log(KinG66S[member.user.id].roles.length);//! KinG66S.❤#0045
-for(let i = 0; i < KinG66S[member.user.id].roles.length + 1; i++) {//! KinG66S.❤#0045
-member.addRole(KinG66S[member.user.id].roles.shift());//! KinG66S.❤#0045
-}//! KinG66S.❤#0045
-});//! KinG66S.❤#0045
+var prefix = "r!";
+  client.on('message', async ReBeLL => {
+if(ReBeLL.author.bot) return;
+if (ReBeLL.channel.guild) {
+if (ReBeLL.content.startsWith(prefix + `8ball`)) {
+    let argsReBeL = ReBeLL.content.split(' ').slice(1).join(' ');
+    let authorReBeL = ReBeLL.author.username;
+
+    // https://en.wikipedia.org/wiki/Magic_8-Ball
+    let ReBeL = [
+        //إجآبآت إجآبيه
+"هذا مؤكد.",
+        "إنه بالتأكيد كذلك" ,
+        "بدون أدنى شك.",
+        "نعم بالتأكيد.",
+        "يمكنك الاعتماد عليه.",
+        "كما أرى أنه نعم.",
+        "على الأرجح.",
+        "توقعات جيدة.",
+        "نعم فعلا.",
+        "وتشير الدلائل إلى نعم.",
+
+        // إجابات غير ملتزمة
+        "الرد المحاولة مرة أخرى ضبابية.",
+        "اسأل مرة اخرى لاحقا.",
+        "الأفضل أن لا أقول لكم الآن.",
+        "لا يمكن التنبؤ الآن.",
+        "التركيز والمحاولة مرة أخرى." ,
+
+        // إجابات سلبية
+        "لا تعتمد على." ,
+        "ردي هو لا.",
+        "وتقول مصادري لا.",
+        "أوتلوك ليس جيد بما فيه الكفاية.",
+        "مشكوك فيه جدا."
+    ]
+    let randomReBeL = Math.floor(Math.random() * ReBeL.length);
+
+    if (!argsReBeL) return ReBeLL.reply("ask him something.");
+    ReBeLL.channel.send(`\:8ball\: | ${ReBeL[randomReBeL]} **${authorReBeL}**`);
+}}});
 
 var prefix = "r!";
 client.on('message', async message => {
@@ -187,12 +215,18 @@ var embed = new Discord.RichEmbed ()
 .setDescription(`r!slots
 r!cat
 r!invite
-r!user`)
+r!user
+r!mute
+r!unmute
+r!8ball`)
 .setColor("#66ff66")
 .addField("r!slots", "للعبة السلوت")
 .addField("r!cat", "لأرسال صورة قطة عشوائية") 
 .addField("r!user", "لمعرفة معلومات بروفايل الشخص")
 .addField("r!invite", "لمعرفة معلومات الانفايت")
+.addField("r!mute", "لأعطاء الميوت لشخص")
+.addField("r!unmute", "لفك الميوت عن الشخص")
+.addField("r!8ball", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
 message.channel.send({embed});
 }
 });

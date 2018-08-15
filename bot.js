@@ -372,7 +372,14 @@ const prefix = 'r!'
      .setColor('#502faf').setAuthor(`${message.author.username}'`, message.author.avatarURL).setDescription('``تم انشاءالالوان``')});
     }
 	});
-
+clientt.on("message", message => {
+if (message.content === 'r!colors') {
+var embed = new Discord.RichEmbed ()
+.setTitle("***علبة الوان رويال***")
+.addField("في هذة الصورة", "https://cdn.discordapp.com/attachments/472743324084731914/478685035730305036/color.png")
+message.channel.send({embed});
+}
+});
 	client.on('message', msg => {
     if (msg.content === 'r!colors') {
       if (msg.channel.id !== "478388106140057610") return;

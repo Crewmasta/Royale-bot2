@@ -11,96 +11,9 @@ client.on('message', msg => {
   }
 });
 
-let prefix = 'r!';
-if(!message.content.startsWith(prefix)) return;
-let msg = message.content.toLowerCase().substring(prefix.length).split(" ")[0]
-let args = message.content.split(" ").slice(2).join(" ");
-const time = 10000 // حط الوقت الي تبيه... مثال 1000 تساوي ثانية واحدة
+
  
-//////////////////////////////////////////////////////////////////////////////////
- 
- 
-if(msg.startsWith('vote') || msg.startsWith('vote-ban')) {
-if(guilds[message.guild.id].cases != false) return message.channel.send(`**There's already a case being processed!**`)
-let user = client.users.get(message.content.split(" ").slice(1)[0]) || message.mentions.users.first();
-if(!user || user.bot) return message.channel.send(`Must be a vaild user or not a bot! ${prefix}vote **@user** <reason>`);
-if(args.length < 1) return message.channel.send(`What is the reason to ban this member? ${prefix}vote @user **<reason>**`);
-if(!message.guild.member(user.id).bannable) return message.channel.send(`**:x: Seems that you can't vote to ban this member!**`)
-if(message.guild.member(user.id).hasPermission('MANAGE_GUILD')) return message.channel.send(`**:x: Seems that you can't vote to ban this member!**`)
-let msg = await message.channel.send('', {embed: { // await promies are more human-readable than then shit...
-author: {
-    name: `Vote to ban ${user.username} (${user.id})`,
-    icon_url: user.avatarURL
-},
-description: `Vote with 👍 to ban **${user.username}** or 👎 to not ban\nReason: _**${args}**_`,
-color: 0xffd3e0,
-footer: {
-    text: `Started by ${message.author.username}`,
-    icon_url: message.author.avatarURL
-}
-}})
-guilds[message.guild.id].cases = true;
-await msg.react('👍')
-await msg.react('👎')
-const reacts = await msg.awaitReactions(reaction => reaction.emoji.name === '👍' || reaction.emoji.name === '👎', {time: time})
-let agrees = 0
-let disagrees = 0
-if(reacts.get('👍')) agrees = reacts.get('👍').count-1
-if(reacts.get('👎')) disagrees = reacts.get('👎').count-1
-msg.channel.send(`**:hourglass: Vote timeout!**\n\`\`\`js\nAgree to ban: [${agrees}], Disagree to ban: [${disagrees}]\`\`\` `);
-msg.delete();
-if(agrees > disagrees) {
-msg.channel.send(``, {embed: {
-description: `**✈ ${user.username} got banned!**`,
-color: 0xff0000
-}}).then(message.guild.member(user.id).ban({reason: `A vote started by ${message.author.username} with reason ${args}`}).catch(err => message.channel.send(`**Oops something went wrong! \n \`\`\`js\n${err}\`\`\` `)))
-} else if (disagrees >= agrees) {
-message.channel.send(`**:x: Ban got cancelled!**`)
-guilds[message.guild.id].cases = false;
-}
-}
- 
-if(msg.startsWith('vote-kick')) {
-if(guilds[message.guild.id].cases != false) return message.channel.send(`**There's already a case being processed!**`)
-let user = client.users.get(message.content.split(" ").slice(1)[0]) || message.mentions.users.first();
-if(!user || user.bot) return message.channel.send(`Must be a vaild user or not a bot! ${prefix}vote **@user** <reason>`);
-if(args.length < 1) return message.channel.send(`What is the reason to ban this member? ${prefix}vote @user **<reason>**`);
-if(!message.guild.member(user.id).kick) return message.channel.send(`**:x: Seems that you can't vote to kick this member!**`)
-if(message.guild.member(user.id).hasPermission('MANAGE_GUILD')) return message.channel.send(`**:x: Seems that you can't vote to ban this member!**`)
-let msg = await message.channel.send('', {embed: { // await promies are more human-readable than then shit...
-author: {
-    name: `Vote to kick ${user.username} (${user.id})`,
-    icon_url: user.avatarURL
-},
-description: `Vote with 👍 to kick **${user.username}** or 👎 to not kick\nReason: _**${args}**_`,
-color: 0xffd3e0,
-footer: {
-    text: `Started by ${message.author.username}`,
-    icon_url: message.author.avatarURL
-}
-}})
-guilds[message.guild.id].cases = true;
-await msg.react('👍')
-await msg.react('👎')
-const reacts = await msg.awaitReactions(reaction => reaction.emoji.name === '👍' || reaction.emoji.name === '👎', {time: time})
-let agrees = 0
-let disagrees = 0
-if(reacts.get('👍')) agrees = reacts.get('👍').count-1
-if(reacts.get('👎')) disagrees = reacts.get('👎').count-1
-msg.channel.send(`**:hourglass: Vote timeout!**\n\`\`\`js\nAgree to kick: [${agrees}], Disagree to kick: [${disagrees}]\`\`\` `);
-msg.delete();
-if(agrees > disagrees) {
-msg.channel.send(``, {embed: {
-description: `**✈ ${user.username} got kicked!**`,
-color: 0xff0000
-}}).then(message.guild.member(user.id).kick(`A vote started by ${message.author.username} with reason ${args}`).catch(err => message.channel.send(`**Oops something went wrong! \n \`\`\`js\n${err}\`\`\` `)))
-} else if (disagrees >= agrees) {
-message.channel.send(`**:x: Ban got cancelled!**`)
-guilds[message.guild.id].cases = false;
-}
-}
- 
-});
+
 
 
 var prefix = "r!";

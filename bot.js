@@ -15,7 +15,8 @@ client.on("message", message => {
 if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
 .setTitle("~~**__Commands list!__**~~")
-.setDescription
+.setDescription(`r!slots
+r!cat`)
 message.channel.send({embed});
 }
 });

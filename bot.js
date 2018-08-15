@@ -17,7 +17,7 @@ var embed = new Discord.RichEmbed ()
 .setTitle(`***__Royale | Commands List :__***`)
 .setDescription(`r!slots
 r!cat`)
-.setColor("RANDOM")
+.setColor(RANDOM)
 .addField("r!slots", "للعبة السلوت")
 .addField("r!cat", "لأرسال صورة قطة عشوائية") 
 message.channel.send({embed});

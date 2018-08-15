@@ -14,9 +14,11 @@ client.on('message', msg => {
 client.on("message", message => {
 if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
-.setTitle("~~**__Commands list!__**~~")
+.setTitle(`~~**__Commands list!__**~~`)
 .setDescription(`r!slots
 r!cat`)
+.addField("r!slots", "للعبة السلوت")
+.addField("r!cat", "لأرسال صورة قطة عشوائية") 
 message.channel.send({embed});
 }
 });

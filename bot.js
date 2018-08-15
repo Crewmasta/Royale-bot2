@@ -11,9 +11,11 @@ client.on('message', msg => {
   }
 });
 
-client.on("message", mesage => {
-if(message.content.startsWith("r!help")) {
-var embed = new Discord.RichEmbed()
+client.on("message", message => {
+if(message.content === "r!help") {
+var embed = new Discord.RichEmbed ()
+.setTitle("~~**__Commands list!__**~~")
+.setDescription
 message.channel.send({embed});
 }
 });

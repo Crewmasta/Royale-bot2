@@ -59,7 +59,7 @@ client.on('message', async message => {
 
     let thisEmbed = new Discord.RichEmbed()
     .setAuthor(mention.user.username, mention.user.avatarURL)
-    .setTitle('تم اغطائك ميوت بسيرفر')
+    .setTitle('تم اعطائك ميوت بسيرفر')
     .setThumbnail(mention.user.avatarURL)
     .addField('# - السيرفر',message.guild.name,true)
     .addField('# - تم اعطائك ميوت بواسطة',message.author,true)

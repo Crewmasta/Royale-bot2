@@ -18,7 +18,7 @@ var embed = new Discord.RichEmbed ()
 .setDescription(`r!slots
 r!cat
 r!invite`)
-.setColor(RANDOM)
+.setColor("#66ff66")
 .addField("r!slots", "للعبة السلوت")
 .addField("r!cat", "لأرسال صورة قطة عشوائية") 
 .addField("r!invite", "لمعرفة معلومات الانفايت")

@@ -11,7 +11,7 @@ client.on('message', msg => {
   }
 });
 
-
+var prefix = "r!";
  const snekfetch = require("snekfetch");
   client.on('message', async message => {
 if(message.author.bot) return;

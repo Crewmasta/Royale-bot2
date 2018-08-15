@@ -206,9 +206,7 @@ r!invite
 r!user
 r!mute
 r!unmute
-r!8ball
-r!vote-ban
-r!vote-kick`)
+r!8ball`)
 .setColor("#66ff66")
 .addField("r!slots", "للعبة السلوت")
 .addField("r!cat", "لأرسال صورة قطة عشوائية") 
@@ -217,8 +215,6 @@ r!vote-kick`)
 .addField("r!mute", "لأعطاء الميوت لشخص")
 .addField("r!unmute", "لفك الميوت عن الشخص")
 .addField("r!8ball", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
-.addField("r!vote-ban", "لتصويت انك تبند شخص")
-.addField("r!vote-kick", "لتصويت انك تعطي كيك لشخص")
 message.channel.send({embed});
 }
 });

@@ -12,7 +12,7 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-const prefix = '+'	
+const prefix = 'r!'	
     if(message.content === prefix + 'createcolors') {
                          if(!message.channel.guild) return message.channel.send('**This Commnad only For Servers !**'); 
          if(!message.member.hasPermission('ADMINISTRATOR')) return    message.channel.send('**You Dont Have** `ADMINISTRATOR` **premission**').then(msg => msg.delete(6000))
@@ -374,14 +374,14 @@ const prefix = '+'
 	});
 
 	client.on('message', msg => {
-    if (msg.content === 'الوان') {
+    if (msg.content === 'r!colors') {
       if (msg.channel.id !== "478388106140057610") return;
       msg.channel.send({file : "https://cdn.discordapp.com/attachments/472743324084731914/478685035730305036/color.png"})
     }
   });
 client.on('message', message => {
     let args = message.content.split(' ').slice(1);
-if(message.content.split(' ')[0] == 'لون'){
+if(message.content.split(' ')[0] == 'r!color'){
 if (message.channel.id !== "478388106140057610") return;
      const embedd = new Discord.RichEmbed()
 .setFooter('Requested by '+message.author.username, message.author.avatarURL)

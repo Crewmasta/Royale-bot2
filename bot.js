@@ -11,6 +11,13 @@ client.on('message', msg => {
   }
 });
 
+client.on("message", mesage => {
+if(message.content.startsWith("r!help")) {
+var embed = new Discord.RichEmbed()
+message.channel.send({embed});
+}
+});
+
   client.on('message', message => {
 if(message.content.startsWith("r!slots")) {
   let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];

@@ -389,7 +389,8 @@ var embed = new Discord.RichEmbed ()
 **» r!unmute ✮**
 **» r!8ball ✮**
 **» r!ban ✮**
-**» r!bc ✮**`)
+**» r!bc ✮**
+**» r!giveaway ✮**`)
 .setColor("#66ff66")
 .addField("__r!slots__", "للعبة السلوت")
 .addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
@@ -400,6 +401,7 @@ var embed = new Discord.RichEmbed ()
 .addField("__r!clear__", "لمسح الشات")
 .addField("__r!kick__", "لطرد العضو من السيرفر")
 .addField("__r!ban__", "لتبنيد العضو من السيرفر")
+.addField("__r!giveaway__", "لعمل جيف اواي مثل جيف اواي بوت")
 .addField("__r!bc__", "لأرسال رسالة لكل اعضاء السيرفر")
 message.channel.send({embed});
 }

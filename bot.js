@@ -330,6 +330,21 @@ client.on('message', async message => {
   }
 });
 
+
+const figlet = require('figlet');
+client.on('message', message => {
+if (message.content.startsWith("r!" + 'tag')) {
+    let args = message.content.split(" ").slice(1);
+if(!args[0]) return message.reply('مرجو كتابة نص الدي تريد');  
+
+    figlet(args.join(" "), (err, data) => {
+              message.channel.send("```" + data + "```") //  عدل على النقاط وحطهم 3 من الجهتين مثل`` كذا تزيد واحد
+           })
+}
+});
+
+
+
 var prefix = "r!";
   client.on('message', message => {
           
@@ -390,13 +405,13 @@ var embed = new Discord.RichEmbed ()
 **» r!8ball ✮**
 **» r!ban ✮**
 **» r!bc ✮**
-**» r!giveaway ✮**`)
+**» r!giveaway ✮**
+**» r!tag ✮**`)
 .setColor("#66ff66")
-.addField("اوامر للمتعة")
+.addField("r!tag", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
 .addField("__r!8ball__", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
 .addField("__r!slots__", "للعبة السلوت")
 .addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
-.addField("اوامر إدارية وعامة")
 .addField("__r!user__", "لمعرفة معلومات بروفايل الشخص")
 .addField("__r!mute__", "لأعطاء الميوت لشخص")
 .addField("__r!unmute__", "لفك الميوت عن الشخص")

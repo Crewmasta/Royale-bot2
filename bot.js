@@ -396,6 +396,17 @@ client.on("message", message => {
 if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
 .setTitle(`**__Royale | Commands List :__**`)
+.addField("  ____                   _   
+ |  _ \ ___  _   _  __ _| |  
+ | |_) / _ \| | | |/ _` | |  
+ |  _ < (_) | |_| | (_| | |_ 
+ |_| \_\___/ \__, |\__,_|_(_)
+             |___/           ", "  ____        _     
+ | __ )  ___ | |_   
+ |  _ \ / _ \| __|  
+ | |_) | (_) | |_ _ 
+ |____/ \___/ \__(_)
+                    ")
 .setDescription(`**» r!slots ✮**
 **» r!cat ✮**
 **» r!clear ✮**

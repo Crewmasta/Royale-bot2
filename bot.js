@@ -15,17 +15,7 @@ client.on('message', msg => {
 if(message.author.bot) return;
 if (message.channel.guild) {
 if (message.content === 'r!help') {
-message.author.send(`  ____                   _   
- |  _ \ ___  _   _  __ _| |  
- | |_) / _ \| | | |/ _` | |  
- |  _ < (_) | |_| | (_| | |_ 
- |_| \_\___/ \__, |\__,_|_(_)
-             |___/           
-    ____        _     
- | __ )  ___ | |_   
- |  _ \ / _ \| __|  
- | |_) | (_) | |_ _ 
- |____/ \___/ \__(_)`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(`Royal bot.`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}});

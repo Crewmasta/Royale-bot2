@@ -14,7 +14,7 @@ client.on('message', msg => {
   client.on('message', async message => {
 if(message.author.bot) return;
 if (message.channel.guild) {
-if (message.content === r!help') {
+if (message.content === 'r!help') {
 message.author.send(`  ____                   _   
  |  _ \ ___  _   _  __ _| |  
  | |_) / _ \| | | |/ _` | |  

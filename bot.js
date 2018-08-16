@@ -11,6 +11,17 @@ client.on('message', msg => {
   }
 });
 
+client.on("message", (message) => {
+    if (message.content.startsWith("r!ban")) {
+      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply(':warning: ماعندك الصلاحيات');
+        var member= message.mentions.members.first();
+        member.ban().then((member) => {
+            message.channel.send(member.displayName + " مع السلامه :wave: ");
+        }).catch(() => {
+        });
+    }
+});
+
 
   client.on("message", message => {
     var prefix = "r!"; 
@@ -269,7 +280,8 @@ r!mute
 r!user
 r!mute
 r!unmute
-r!8ball`)
+r!8ball
+r!ban`)
 .setColor("#66ff66")
 .addField("r!slots", "للعبة السلوت")
 .addField("r!cat", "لأرسال صورة قطة عشوائية") 
@@ -280,6 +292,7 @@ r!8ball`)
 .addField("r!8ball", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
 .addField("r!clear", "لمسح الشات")
 .addField("r!kick", "لطرد العضو من السيرفر")
+.addField("r!ban", "لتبنيد العضو من السيرفر")
 message.channel.send({embed});
 }
 });

@@ -15,7 +15,7 @@ client.on('message', msg => {
 if(message.author.bot) return;
 if (message.channel.guild) {
 if (message.content === 'r!help') {
-message.author.send(`Royal bot.`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
+message.author.send(`Royale bot.`).catch(RebeL =>{console.log('`Error`: ' + RebeL);
 message.channel.send("**للأسف , لديك اعدادات خصوصية لاتسمح لي بأرسال رسائل خاصة لك **")
 });
 }}});

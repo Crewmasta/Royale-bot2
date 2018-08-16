@@ -271,17 +271,15 @@ var mentionned = message.mentions.members.first();
 client.on("message", message => {
 if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
-.setTitle(`***__Royale | Commands List :__***`)
-.setDescription(`r!slots
-r!cat
-r!clear
-r!kick
-r!mute
-r!user
-r!mute
-r!unmute
-r!8ball
-r!ban`)
+.setTitle(`**__Royale | Commands List :__**`)
+.setDescription(`**» r!slots ✮**
+**» r!cat ✮**
+**» r!clear ✮**
+**» r!kick ✮**
+**» r!mute ✮**
+**» r!unmute ✮**
+**» r!8ball ✮**
+**» r!ban ✮** `)
 .setColor("#66ff66")
 .addField("__r!slots__", "للعبة السلوت")
 .addField("__r!cat__", "لأرسال صورة قطة عشوائية") 

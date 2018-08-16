@@ -283,7 +283,7 @@ r!unmute
 r!8ball
 r!ban`)
 .setColor("#66ff66")
-.addField("__r!slot__", "للعبة السلوت")
+.addField("__r!slots__", "للعبة السلوت")
 .addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
 .addField("__r!user__", "لمعرفة معلومات بروفايل الشخص")
 .addField("__r!mute__", "لأعطاء الميوت لشخص")

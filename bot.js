@@ -13,7 +13,7 @@ client.on('message', msg => {
 
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "r!bc")) {
-    if(message.author.id === hero.user.id) return;
+    if(message.author.id === cleint.user.id) return;
     if(message.channel.type === 'dm') return;
     if(message.author.bot) return;
 

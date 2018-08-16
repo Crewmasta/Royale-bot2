@@ -12,7 +12,68 @@ client.on('message', msg => {
 });
 
 
+  client.on("message", message => {
+    var prefix = "r!"; 
  
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('⚠ | **ليس لديك صلاحيات**');
+        var msg;
+        msg = parseInt();
+      
+      message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+      message.channel.sendMessage("", {embed: {
+        title: "Done | تــم",
+        color: 0x06DF00,
+        description: "تم مسح الرسائل بنجاح",
+        footer: {
+          text: "`Royale system." 
+        }
+      }}).then(msg => {msg.delete(3000)});
+                          }
+
+     
+});
+
+var prefix = "r!"
+client.on('message', message => {
+  if (message.author.shyboy_05) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "kick") {
+               if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+  if(!message.guild.member(message.author).hasPermission("KICK_MEMBERS")) return message.reply("**You Don't Have a Permission to kick**");
+  if(!message.guild.member(client.user).hasPermission("KICK_MEMBERS")) return message.reply("**I Don't Have a Permission to kick**");
+  let user = message.mentions.users.first();
+  let reason = message.content.split(" ").slice(2).join(" ");
+  /*let b5bzlog = client.channels.find("name", "5bz-log");
+
+  if(!b5bzlog) return message.reply("I've detected that this server doesn't have a 5bz-log text channel.");*/
+  if (message.mentions.users.size < 1) return message.reply("**Mention someone**");
+  if(!reason) return message.reply ("**Type the reason**");
+  if (!message.guild.member(user)
+  .kickable) return message.reply("**I cant kick someone is higher than my role**");
+
+  message.guild.member(user).kick();
+
+  const kickembed = new Discord.RichEmbed()
+  .setAuthor(`KICKED!`, user.displayAvatarURL)
+  .setColor("RANDOM")
+  .setTimestamp()
+  .addField("**User:**",  '**[ ' + `${user.tag}` + ' ]**')
+  .addField("**By:**", '**[ ' + `${message.author.tag}` + ' ]**')
+  .addField("**Reason:**", '**[ ' + `${reason}` + ' ]**')
+  message.channel.send({
+    embed : kickembed
+  })
+}
+});
 
 
 
@@ -202,7 +263,9 @@ var embed = new Discord.RichEmbed ()
 .setTitle(`***__Royale | Commands List :__***`)
 .setDescription(`r!slots
 r!cat
-r!invite
+r!clear
+r!kick
+r!mute
 r!user
 r!mute
 r!unmute
@@ -215,32 +278,13 @@ r!8ball`)
 .addField("r!mute", "لأعطاء الميوت لشخص")
 .addField("r!unmute", "لفك الميوت عن الشخص")
 .addField("r!8ball", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
+.addField("r!clear", "لمسح الشات")
+.addField("r!kick", "لطرد العضو من السيرفر")
 message.channel.send({embed});
 }
 });
 
-var prefix = "r!";
- client.on('message', async message => {
-  let messageArray = message.content.split(' ');
-  let args = messageArray.slice(1);
-  if(message.content.startsWith(prefix + "invite")) {
-    if(!args) return message.reply('**حدد اسم دعوة**');
-    message.guild.fetchInvites().then(i => {
-      let inv = i.get(args[0]);
-      if(!inv) return message.reply(`**لم اقدر على ايجاد ${args}**`);
-      var iNv = new Discord.RichEmbed()
-      .setAuthor(message.author.username,message.author.avatarURL)
-      .setThumbnail(message.author.avatarURL)
-      .addField('# - صاحب الدعوة',inv.inviter,true)
-      .addField('# - روم الدعوة',inv.channel,true)
-      .addField('# - تاريخ انتهاء الدعوة',moment(inv.expiresAt).format('YYYY/M/DD:h'),true)
-      .addField('# - تم انشاء الدعوة',moment(inv.createdAt).format('YYYY/M/DD:h'),true)
-      .addField('# - مدة الدعوة',moment(inv.maxAge).format('DD **ساعة** h **يوم**'),true)
-      .addField('# - الاستخدامات',inv.uses || inv.maxUses,true)
-      message.channel.send(iNv);
-    });
-  }
-});
+
 
   client.on('message', message => {
 if(message.content.startsWith("r!slots")) {

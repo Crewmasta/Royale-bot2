@@ -10,7 +10,7 @@ client.on('message', msg => {
     msg.reply('Pong!');
   }
 });
-
+var prefix = "r!";
 client.on('message', async message => {
     let args = message.content.split(" ");
     let warns = JSON.parse(fs.readFileSync('./warnings.json' , 'utf8'));

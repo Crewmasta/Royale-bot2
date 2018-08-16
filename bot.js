@@ -13,6 +13,7 @@ client.on('message', msg => {
 
 client.on('message', message => {
       var prefix = "r!";
+  var errors = "0";
 
         if (message.author.id === client.user.id) return;
         if (message.guild) {

@@ -11,44 +11,42 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', async message => {
-  if(message.content.startsWith(prefix + "r!bc")) {
-    if(message.author.id === client.user.id) return;
-    if(message.channel.type === 'dm') return;
-    if(message.author.bot) return;
+client.on('message', message => {
+      var prefix = "r!";
 
-    var args = message.content.split(' ').slice(1).join(' ');
-    if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(':eight_pointed_black_star: » انت لا تملك الخصائص اللازمة , يجب توفر خاصية `التحكم بأعدادات السيرفر`');
-    if(!args) return message.channel.send(':eight_pointed_black_star: » انت لم تقم بكتابة الرسالة');
-
-    try {
-      // By: iAmHeRo¹⁵ ☤#1705
-      var i = message.guild.memberCount;
-      args = args.replace('[sender]', message.author);
-      args = args.replace('[server]', message.guild.name);
-      message.channel.send(':information_source: » جاري ارسال الرسالة .. __يرجى الانتظار__');
-      setTimeout(() => {
-        message.channel.send(`:white_check_mark: » تم ارسال البرودكاست .. تم الارسال لـ ${i} شخص`);
-      }, message.guild.members.size * 1000);
-      message.guild.members.forEach(m => {
-        var bcEmbeed = new Discord.RichEmbed()
-        .setAuthor(message.author.username, message.author.avatarURL)
-        .addField(':eight_pointed_black_star: » السيرفر', `[** __${message.guild.name}__ **]`,true)
-        .addField(':eight_pointed_black_star: » المرسل', `[** __${message.author.username}__ **]`,true)
-        .addField(':eight_pointed_black_star: » الرسالة', args.replace('[user]' , m))
-        .setFooter(`${client.user.username} :: ${new Date().toLocaleString()}`, client.user.avatarURL)
-        .setColor('BLACK');
-        m.send(bcEmbeed).catch(e => i--);
-      });
-      // message.channel.send(`[** __Error Detected__ **] : ${e} , ${m}`)
-    } catch(e) {
-      if(e) {
-        return message.channel.send(`[** __Error Detected__ **] : ${e}`);
-      }
+        if (message.author.id === client.user.id) return;
+        if (message.guild) {
+       let embed = new Discord.RichEmbed()
+        let args = message.content.split(' ').slice(1).join(' ');
+    if(message.content.split(' ')[0] == prefix + 'bc') {
+       if(!message.member.hasPermission('ADMINISTRATOR')) return;
+        if (!args[1]) {
+    message.channel.send("**.bc <message>**");
+    return;
     }
-  }
+            message.guild.members.forEach(m => {
+                var bc = new Discord.RichEmbed()
+                .setAuthor(message.author.username, message.author.avatarURL)
+                .addField('** الـسيرفر**', `${message.guild.name}`,true)
+                .addField(' **الـمرسل **', `${message.author.username}#${message.author.discriminator}`,true)
+                .addField(' **الرسالة** ', args)
+                .setThumbnail(message.guild.iconURL)
+                .setColor('RANDOM')
+                m.send(`${m}`,{embed: bc});
+            });
+            const AziRo = new Discord.RichEmbed()
+            .setAuthor(message.author.username, message.author.avatarURL)   
+            .setTitle('✔️ | جاري ارسال رسالتك ') 
+            .addBlankField(true)
+            .addField('👥 | عدد الاعضاء المرسل لهم ', message.guild.memberCount , true)        
+            .addField('📋| الرسالة ', args)
+            .setColor('RANDOM')  
+            message.channel.sendEmbed(AziRo);          
+        }
+        } else {
+            return;
+        }
 });
-
 client.on("message", (message) => {
     if (message.content.startsWith("r!ban")) {
       if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply(':warning: ماعندك الصلاحيات');

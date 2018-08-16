@@ -13,7 +13,7 @@ client.on('message', msg => {
 
 client.on('message', async message => {
   if(message.content.startsWith(prefix + "r!bc")) {
-    if(message.author.id === cleint.user.id) return;
+    if(message.author.id === client.user.id) return;
     if(message.channel.type === 'dm') return;
     if(message.author.bot) return;
 
@@ -36,7 +36,7 @@ client.on('message', async message => {
         .addField(':eight_pointed_black_star: » السيرفر', `[** __${message.guild.name}__ **]`,true)
         .addField(':eight_pointed_black_star: » المرسل', `[** __${message.author.username}__ **]`,true)
         .addField(':eight_pointed_black_star: » الرسالة', args.replace('[user]' , m))
-        .setFooter(`${hero.user.username} :: ${new Date().toLocaleString()}`, hero.user.avatarURL)
+        .setFooter(`${client.user.username} :: ${new Date().toLocaleString()}`, client.user.avatarURL)
         .setColor('BLACK');
         m.send(bcEmbeed).catch(e => i--);
       });
@@ -48,7 +48,6 @@ client.on('message', async message => {
     }
   }
 });
-
 
 client.on("message", (message) => {
     if (message.content.startsWith("r!ban")) {

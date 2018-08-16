@@ -283,15 +283,15 @@ r!unmute
 r!8ball
 r!ban`)
 .setColor("#66ff66")
-.addField("r!slots", "للعبة السلوت")
-.addField("r!cat", "لأرسال صورة قطة عشوائية") 
-.addField("r!user", "لمعرفة معلومات بروفايل الشخص")
-.addField("r!mute", "لأعطاء الميوت لشخص")
-.addField("r!unmute", "لفك الميوت عن الشخص")
-.addField("r!8ball", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
-.addField("r!clear", "لمسح الشات")
-.addField("r!kick", "لطرد العضو من السيرفر")
-.addField("r!ban", "لتبنيد العضو من السيرفر")
+.addField("__r!slot__", "للعبة السلوت")
+.addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
+.addField("__r!user__", "لمعرفة معلومات بروفايل الشخص")
+.addField("__r!mute__", "لأعطاء الميوت لشخص")
+.addField("__r!unmute__", "لفك الميوت عن الشخص")
+.addField("__r!8ball__", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
+.addField("__r!clear__", "لمسح الشات")
+.addField("__r!kick__", "لطرد العضو من السيرفر")
+.addField("__r!ban__", "لتبنيد العضو من السيرفر")
 message.channel.send({embed});
 }
 });

@@ -438,18 +438,37 @@ client.on("message", message => {
 if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
 .setTitle(`**__Royale | Commands List :__**`)
-.setDescription(`**» r!slots ✮**
-**» r!cat ✮**
-**» r!clear ✮**
-**» r!kick ✮**
-**» r!mute ✮**
-**» r!unmute ✮**
-**» r!8ball ✮**
-**» r!ban ✮**
-**» r!bc ✮**
-**» r!giveaway ✮**
-**» r!tag ✮**
-**» r!avatar ✮**`)
+.setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+《Royale | Commands list :》
+» r!slots :slot_machine: 
+» r!cat :cat: 
+» r!clear :speech_balloon: 
+» r!kick :no_entry_sign: 
+» r!mute :zipper_mouth: 
+» r!unmute :neutral_face: 
+» r!8ball :question: 
+» r!ban :no_entry: 
+» r!bc :mailbox_with_no_mail: 
+» r!giveaway :tada: 
+» r!tag :ideograph_advantage: 
+» r!avatar :frame_photo: 
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+《General Commands :》
+» r!slots :slot_machine: 
+» r!cat :cat: 
+» r!avatar :frame_photo: 
+» r!8ball :question: 
+» r!tag :ideograph_advantage: 
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+《Admin Commands :》
+» r!mute :zipper_mouth: 
+» r!unmute :neutral_face: 
+» r!ban :no_entry: 
+» r!giveaway :tada: 
+» r!bc :mailbox_with_no_mail: 
+» r!kick :no_entry_sign: 
+» r!clear :speech_balloon: 
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
 .setColor("#66ff66")
 .addField("__r!tag__", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
 .addField("__r!8ball__", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")

@@ -14,7 +14,7 @@ client.on('message', msg => {
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
-  let prefix = "r!";
+  var prefix = "r!";
   let messageArray = message.content.split(" ");
   let cmd = messageArray.slice(1);
 

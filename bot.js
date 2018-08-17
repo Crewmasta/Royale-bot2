@@ -501,7 +501,9 @@ var embed = new Discord.RichEmbed ()
 **» r!bc** :mailbox_with_no_mail: 
 **» r!giveaway** :tada: 
 **» r!tag** :ideograph_advantage: 
-**» r!avatar** :frame_photo: 
+**» r!avatar** :frame_photo:
+**» r!say** :speaking_head:
+**» r!report** :rage:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 《**__General Commands :__**》
 **» r!slots** :slot_machine: 
@@ -509,6 +511,8 @@ var embed = new Discord.RichEmbed ()
 **» r!avatar** :frame_photo: 
 **» r!8ball** :question: 
 **» r!tag** :ideograph_advantage: 
+**» r!say** :speaking_head:
+**» r!report** :rage:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 《**__Admin Commands :__**》
 **» r!mute** :zipper_mouth: 

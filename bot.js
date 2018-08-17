@@ -11,7 +11,28 @@ client.on('message', msg => {
   }
 });
 
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+  let prefix = "r!";
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray.slice(1);
 
+if(cmd === `${prefix}serverinfo`);
+let sicon = message.guild.displyAvatarURL;
+let serverEmbed = new Discord.RichEmbed()
+.setDescription("``Server Information``")
+.addField("Server Name", message.guild.name)
+.addField("Created On", message.guild.createdAt)
+.addField("You Joined", message.member.joinedAt)
+.addField("Total Members", message.guild.memberCount)
+.addField("Server Owner", message.guild.owner.user.username)
+.addField("Rooms", message.guild.channels.size)
+.addField("Roles", message.guild.roles.size)
+.addField("Region", message.guild.region)
+.addField("Server ID", message.guild.id);
+
+return message.channel.send(serverEmbed);
 
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
@@ -450,9 +471,11 @@ var embed = new Discord.RichEmbed ()
 **» r!ban ✮**
 **» r!bc ✮**
 **» r!giveaway ✮**
-**» r!tag ✮**`)
+**» r!tag ✮**
+**» r!serverinfo ✮**
+**» r!avatar ✮**`)
 .setColor("#66ff66")
-.addField("r!tag", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
+.addField("__r!tag__", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
 .addField("__r!8ball__", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
 .addField("__r!slots__", "للعبة السلوت")
 .addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
@@ -464,6 +487,8 @@ var embed = new Discord.RichEmbed ()
 .addField("__r!ban__", "لتبنيد العضو من السيرفر")
 .addField("__r!giveaway__", "لعمل جيف اواي مثل جيف اواي بوت")
 .addField("__r!bc__", "لأرسال رسالة لكل اعضاء السيرفر")
+.addField("__r!serverinfo", "لإظهار معلومات السيرفر")
+.addField("__r!avatar", "لأظهار صورتك")
 message.author.send({embed});
 }
 });

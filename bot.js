@@ -449,7 +449,6 @@ var embed = new Discord.RichEmbed ()
 **» r!bc ✮**
 **» r!giveaway ✮**
 **» r!tag ✮**
-**» r!serverinfo ✮**
 **» r!avatar ✮**`)
 .setColor("#66ff66")
 .addField("__r!tag__", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
@@ -464,8 +463,7 @@ var embed = new Discord.RichEmbed ()
 .addField("__r!ban__", "لتبنيد العضو من السيرفر")
 .addField("__r!giveaway__", "لعمل جيف اواي مثل جيف اواي بوت")
 .addField("__r!bc__", "لأرسال رسالة لكل اعضاء السيرفر")
-.addField("__r!serverinfo", "لإظهار معلومات السيرفر")
-.addField("__r!avatar", "لأظهار صورتك")
+.addField("__r!avatar__", "لأظهار صورتك")
 message.author.send({embed});
 }
 });

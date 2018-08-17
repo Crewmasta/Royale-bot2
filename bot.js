@@ -11,6 +11,56 @@ client.on('message', msg => {
   }
 });
 
+
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = "r!";
+  let messageArray = message.content.split (" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+
+
+
+  if(cmd === `${prefix}report`){
+
+
+
+  let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  if(!rUser) return message.channel.send("لم اجد العضو");
+  let reason = args.join(" ").slice(22);
+
+  let reportEmbed = new Discord.RichEmbed()
+  .setDescription("Reports")
+  .setColor("#15f153")
+  .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+  .addField("Reported by", `${message.author} with ID: ${message.author.id}`)
+  .addField("Channel", message.channel)
+  .addField("Time", message.createdAt)
+  .addField("Reason", reason);
+
+ let reportschannel = message.guild.channels.find("name", "reports");
+ if(!reportschannel) return message.channel.send("لم اجد روم الريبورتس");
+
+
+ message.delete().catch(O_o=> {});
+ reportschannel.send(reportEmbed);
+}
+});
+
+var prefix = "r!";
+client.on('message', message => {
+    if (message.content.startsWith(prefix + "say")) {
+
+        let args = message.content.split(" ").slice(1)
+        let text = args.join(' ').replace('$userid', message.author.id).replace('server-name', message.guild.name)
+        message.channel.send(text)
+    }
+});
+
+
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;

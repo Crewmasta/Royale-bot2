@@ -33,7 +33,8 @@ let serverEmbed = new Discord.RichEmbed()
 .addField("Server ID", message.guild.id);
 
 return message.channel.send(serverEmbed);
-
+}
+});
 client.on('message', async msg =>{
 	if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;

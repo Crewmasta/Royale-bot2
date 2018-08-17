@@ -439,50 +439,37 @@ if(message.content === "r!help") {
 var embed = new Discord.RichEmbed ()
 .setTitle(`**__Royale | Commands List :__**`)
 .setDescription(`▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-《Royale | Commands list :》
-» r!slots :slot_machine: 
-» r!cat :cat: 
-» r!clear :speech_balloon: 
-» r!kick :no_entry_sign: 
-» r!mute :zipper_mouth: 
-» r!unmute :neutral_face: 
-» r!8ball :question: 
-» r!ban :no_entry: 
-» r!bc :mailbox_with_no_mail: 
-» r!giveaway :tada: 
-» r!tag :ideograph_advantage: 
-» r!avatar :frame_photo: 
+《**__Royale | Commands list :__**》
+**» r!slots** :slot_machine: 
+**» r!cat** :cat: 
+**» r!clear** :speech_balloon: 
+**» r!kick** :no_entry_sign: 
+**» r!mute** :zipper_mouth: 
+**» r!unmute** :neutral_face: 
+**» r!8ball** :question: 
+**» r!ban** :no_entry: 
+**» r!bc** :mailbox_with_no_mail: 
+**» r!giveaway** :tada: 
+**» r!tag** :ideograph_advantage: 
+**» r!avatar** :frame_photo: 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-《General Commands :》
-» r!slots :slot_machine: 
-» r!cat :cat: 
-» r!avatar :frame_photo: 
-» r!8ball :question: 
-» r!tag :ideograph_advantage: 
+《**__General Commands :__**》
+**» r!slots** :slot_machine: 
+**» r!cat** :cat: 
+**» r!avatar** :frame_photo: 
+**» r!8ball** :question: 
+**» r!tag** :ideograph_advantage: 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-《Admin Commands :》
-» r!mute :zipper_mouth: 
-» r!unmute :neutral_face: 
-» r!ban :no_entry: 
-» r!giveaway :tada: 
-» r!bc :mailbox_with_no_mail: 
-» r!kick :no_entry_sign: 
-» r!clear :speech_balloon: 
+《**__Admin Commands :__**》
+**» r!mute** :zipper_mouth: 
+**» r!unmute** :neutral_face: 
+**» r!ban** :no_entry: 
+**» r!giveaway** :tada: 
+**» r!bc** :mailbox_with_no_mail: 
+**» r!kick** :no_entry_sign: 
+**» r!clear** :speech_balloon: 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬`)
 .setColor("#66ff66")
-.addField("__r!tag__", "لكتابة شي بعد الأمر سوف يجعلهولك بشكل افضل واكبر ")
-.addField("__r!8ball__", "لسأل البوت سؤال وسيتم الرد عليك تلقائياً")
-.addField("__r!slots__", "للعبة السلوت")
-.addField("__r!cat__", "لأرسال صورة قطة عشوائية") 
-.addField("__r!user__", "لمعرفة معلومات بروفايل الشخص")
-.addField("__r!mute__", "لأعطاء الميوت لشخص")
-.addField("__r!unmute__", "لفك الميوت عن الشخص")
-.addField("__r!clear__", "لمسح الشات")
-.addField("__r!kick__", "لطرد العضو من السيرفر")
-.addField("__r!ban__", "لتبنيد العضو من السيرفر")
-.addField("__r!giveaway__", "لعمل جيف اواي مثل جيف اواي بوت")
-.addField("__r!bc__", "لأرسال رسالة لكل اعضاء السيرفر")
-.addField("__r!avatar__", "لأظهار صورتك")
 message.author.send({embed});
 }
 });

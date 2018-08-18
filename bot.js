@@ -12,6 +12,45 @@ client.on('message', msg => {
 });
 
 
+bot.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = "r!";
+  let messageArray = message.content.split (" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+
+
+
+
+
+
+
+  if(cmd === `${prefix}server`){
+    let sicon = message.guild.iconURL;
+    let serverembed = new Discord.RichEmbed()
+    .setDescription("Server information")
+    .setColor("RANDOM")
+    .setThumbnail(sicon)
+    .addField("Server name :thinking:", message.guild.name)
+    .addField("Created On :x:", message.guild.createdAt)
+    .addField("You joined :speaker: ", message.guild.joinedAt)
+    .addField("Owned By :crown:", message.guild.owner)
+    .addField("Owner id :id:", message.guild.owner.id)
+    .addField("Roles :1234:", message.guild.roles.size)
+    .addField("Server region :earth_africa:", message.guild.region)
+    .addField("Total members :speak_no_evil:  ", message.guild.memberCount);
+
+
+    return message.channel.send(serverembed);
+
+  }
+});
+
+
+
 client.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
@@ -504,9 +543,11 @@ var embed = new Discord.RichEmbed ()
 **» r!avatar** :frame_photo:
 **» r!say** :speaking_head:
 **» r!report** :rage:
+**» r!server** :earth_africa:
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 《**__General Commands :__**》
 **» r!slots** :slot_machine: 
+**» r!server** :earth_africa:
 **» r!cat** :cat: 
 **» r!avatar** :frame_photo: 
 **» r!8ball** :question: 
